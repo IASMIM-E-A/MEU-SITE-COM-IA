@@ -1,0 +1,339 @@
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #003366, #004d99, #003366);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    color: white;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Animação de ondas */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 0 0 10px 10px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    animation: float 3s ease-in-out infinite;
+}
+
+.header p {
+    font-size: 1.2em;
+    color: #cceeff;
+}
+
+/* Efeito de flutuação */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.block {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.icon {
+    font-size: 40px;
+    color: #cceeff;
+    margin-bottom: 10px;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: -1;
+    transform: rotate(45deg);
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+h2 {
+    color: #cceeff;
+    border-bottom: 2px solid #cceeff;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #cceeff;
+    text-align: left;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Botão interativo */
+#color-button {
+    background-color: #004d99;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 10px auto;
+    display: block;
+}
+
+#color-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #cceeff;
+    z-index: -1;
+    transition: left 0.5s ease;
+}
+
+#color-button:hover::after {
+    left: 0;
+}
+
+/* Quiz */
+.quiz-option {
+    background-color: #004d99;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background-color: #cceeff;
+    color: #003366;
+}
+/* Estilo para o contêiner da mensagem */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo para o campo de texto */
+#user-message {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border: 2px solid #cceeff;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+#user-message:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Estilo para o botão de envio */
+#submit-message {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#submit-message:hover {
+    background-color: #cceeff;
+    color: #003366;
+    transform: scale(1.1);
+}
+
+#submit-message i {
+    margin-right: 5px;
+}
+
+/* Animação para a mensagem de agradecimento */
+#thank-you {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffcc00;
+    animation: fadeIn 1.5s ease-in-out;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Estilo para a lista de habilidades */
+#skill-list {
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding: 0;
+}
+
+#skill-list li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #cceeff;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+#skill-list li:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    background-color: #cceeff; /* Muda a cor de fundo */
+    color: #003366; /* Muda a cor do texto */
+}
+
+/* Estilo para a lista de habilidades */
+#skill-list {
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding: 0;
+    margin: 0;
+}
+
+#skill-list li {
+    font-size: 16px; /* Reduzimos o tamanho da fonte */
+    margin: 8px 0; /* Espaçamento reduzido entre os itens */
+    padding: 8px 12px; /* Reduzimos o padding interno */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #cceeff;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    max-width: 100%; /* Garante que o texto não ultrapasse o card */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse */
+    text-overflow: ellipsis; /* Adiciona reticências (...) caso o texto seja muito longo */
+}
+
+#skill-list li:hover {
+    transform: scale(1.05); /* Reduzimos o aumento de escala para evitar vazamento */
+    background-color: #cceeff; /* Muda a cor de fundo */
+    color: #003366; /* Muda a cor do texto */
+}
+
+/* Ícone que aparece ao passar o mouse */
+#skill-list li::after {
+    content: "✔"; /* Ícone de verificação */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #004d99;
+    font-size: 18px; /* Reduzimos o tamanho do ícone */
+}
+
+#skill-list li:hover::after {
+    opacity: 1; /* Mostra o ícone ao passar o mouse */
+}
+
+/* Estilo global */
+body {
+    font-family: 'Quicksand', Arial, sans-serif; /* Fonte principal para o texto */
+    background: linear-gradient(135deg, #003366, #004d99, #003366);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    color: white;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Estilo para títulos */
+h1, h2 {
+    font-family: 'Pacifico', cursive; /* Fonte para títulos */
+    font-weight: normal; /* Mantém a aparência natural da fonte */
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header p {
+    font-size: 1.2em;
+    color: #cceeff;
+    font-family: 'Quicksand', Arial, sans-serif; /* Fonte secundária para parágrafos */
+}
+
