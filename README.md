@@ -1,2 +1,1 @@
-# MEU-SITE-COM-IA
-site criado com IA, sem alterações feita por humanos.
+O intuito da criação deste site foi para obter habilidades com a utilização de inteligência artificial em determinados campos, obtendo mais controle e um melhor resultado aprendendo a digitar o comando certo.
